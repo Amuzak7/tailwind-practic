@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>daisyUI 効き具合テスト</title>
+  <link href="/public/output.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nosifer&family=Rubik+Wet+Paint&display=swap" rel="stylesheet">
+</head>
+<body class="font-['Rubik_Wet_Paint']">
+
+  <!-- navbar -->
+  <div class="navbar bg-base-100 shadow-sm">
+    <!-- LOGO -->
+    <div class="flex-1">
+      <a class="btn btn-ghost text-3xl">LOGO</a>
+    </div>
+    <!-- PCmenu -->
+    <div class="flex-none hidden md:flex">
+
+      <!-- swap -->
+      <label class="swap swap-rotate">
+        <!-- this hidden checkbox controls the state -->
+        <input type="checkbox" class="theme-controller" value="dark" />
+
+        <!-- sun icon -->
+        <svg class="swap-off h-10 w-10 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z" />
+        </svg>
+
+        <!-- moon icon -->
+        <svg class="swap-on h-10 w-10 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" />
+        </svg>
+      </label>
+
+      <!-- navmenu -->
+      <ul class="menu menu-horizontal px-1">
+        <li><a>Link</a></li>
+        <li>
+          <details>
+            <summary>Parent</summary>
+            <ul class="bg-base-100 rounded-t-none p-2">
+              <li><a>Link 1</a></li>
+              <li><a>Link 2</a></li>
+            </ul>
+          </details>
+        </li>
+      </ul>
+    </div>
+
+    <!-- hamberger -->
+    <div class="md:hidden">
+      <div class="dropdown dropdown-end">
+        <label tabindex="0" class="btn btn-ghost btn-circle">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </label>
+        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-1 p-2 shadow bg-base-100 rounded-box w-52">
+          <li><a>Link</a></li>
+          <li>
+            <details>
+              <summary>Parent</summary>
+              <ul class="bg-base-100 rounded-t-none p-2">
+                <li><a>Link 1</a></li>
+                <li><a>Link 2</a></li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 検索＆アカウント -->
+    <div class="flex-none flex gap-2 items-center">
+      <!-- 検索ボックス -->
+      <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
+      <!-- アカウント -->
+      <div class="dropdown dropdown-end">
+        <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+          <div class="w-10 rounded-full">
+            <img alt="avatar" src="/public/avatar.svg" />
+          </div>
+        </div>
+        <ul tabindex="-0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+          <li><a class="justify-between">Profile<span class="badge">New</span></a></li>
+          <li><a>Settings</a></li>
+          <li><a>Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+<div class="hero min-h-screen" style="background-image: url(/public/images/hero-shoes.jpg);">
+  <div class="hero-overlay bg-opacity-60"></div>
+    <div class="hero-content text-center text-neutral-content">
+      <div class="max-w-md">
+        <h1 class="text-6xl font-bold">ヒーローページ</h1>
+        <p class="py-6">
+          Tailwind、daisyUIを利用してWebサイト制作の練習中です。<br>
+          こちらはヒーローセクション。背景画像を設定します。
+        </p>
+        <!-- Open the modal using ID.showModal() method -->
+        <button class="btn btn-secondary" onclick="my_modal_2.showModal()">open modal</button>
+        <dialog id="my_modal_2" class="modal">
+          <div class="modal-box bg-success text-primary-content max-w-md mx-auto">
+            <!-- Legistor/Login -->
+            <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-8 mx-auto text-center">
+              <div class="text-3xl text-base-content">Login</div>
+
+              <label class="label text-base-content mt-0">Email</label>
+              <input type="email" class="input" placeholder="Email" />
+
+              <label class="label text-base-content">Password</label>
+              <input type="password" class="input" placeholder="Password" />
+
+              <button class="btn btn-neutral mt-4">Login</button>
+            </fieldset>
+          </div>
+          <form method="dialog" class="modal-backdrop">
+            <button>close</button>
+          </form>
+        </dialog>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Carousel -->
+<div class="carousel carousel-center w-full space-x-8 px-4 bg-base-200">
+
+    <div class="hover-3d">
+      <div class="carousel-item w-96">
+        <div class="card bg-base-100 shadow-sm w-full relative">
+          <div class="badge badge-secondary absolute top-4 left-4">Selling Fast!!</div>
+          <figure>
+            <img src="/public/images/shoe5.jpeg" alt="Shoes" />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">Card Title</h2>
+            <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+            <div class="card-actions justify-end">
+              <button class="btn btn-secondary">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
+    <div class="carousel-item w-96">
+      <div class="card bg-base-100 shadow-sm w-full">
+        <figure>
+          <img src="/public/images/shoe1.jpeg" alt="Shoes" />
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title">Card Title</h2>
+          <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+          <div class="card-actions justify-end">
+            <button class="btn btn-primary">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel-item w-96">
+      <div class="card bg-base-100 shadow-sm w-full">
+        <figure>
+          <img src="/public/images/shoe2.jpeg" alt="Shoes" />
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title">Card Title</h2>
+          <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+          <div class="card-actions justify-end">
+            <button class="btn btn-secondary">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel-item w-96">
+      <div class="card bg-base-100 shadow-sm w-full">
+        <figure>
+          <img src="/public/images/shoe3.jpeg" alt="Shoes" />
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title">Card Title</h2>
+          <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+          <div class="card-actions justify-end">
+            <button class="btn btn-primary">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel-item w-96">
+      <div class="card bg-base-100 shadow-sm w-full relative">
+        <div class="badge badge-accent absolute top-4 left-4">Only 3 left!!</div>
+        <figure>
+          <img src="/public/images/shoe4.jpeg" alt="Shoes" />
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title">Card Title</h2>
+          <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+          <div class="card-actions justify-end">
+            <button class="btn btn-secondary">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!-- FAQ Accordion -->
+<div class="p-10 bg-base-200">
+  <details class="collapse bg-base-100 border border-base-300" name="my-accordion-det-1">
+    <summary class="collapse-title font-semibold bg-accent">How do I create an account?</summary>
+    <div class="collapse-content text-sm">Click the "Sign Up" button in the top right corner and follow the registration process.</div>
+  </details>
+  <details class="collapse bg-base-100 border border-base-300" name="my-accordion-det-1">
+    <summary class="collapse-title font-semibold bg-secondary">I forgot my password. What should I do?</summary>
+    <div class="collapse-content text-sm">Click on "Forgot Password" on the login page and follow the instructions sent to your email.</div>
+  </details>
+  <details class="collapse bg-base-100 border border-base-300" name="my-accordion-det-1">
+    <summary class="collapse-title font-semibold bg-primary">How do I update my profile information?</summary>
+    <div class="collapse-content text-sm">Go to "My Account" settings and select "Edit Profile" to make changes.</div>
+  </details>
+</div>
+
+<!-- Footer -->
+<footer class="footer sm:footer-horizontal bg-base-200 text-base-content p-10">
+
+  <!-- upper logo address -->
+      <div class="flex flex-col">
+        <a class="bg-linear-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent text-4xl font-bold hover:from-violet-600 hover:to-pink-500 transition">Company Logo</a>
+        <!-- 画像欲しいとき: <img src="logo-white.png" alt="会社ロゴ"> -->
+        <address class="font-sans mt-4">
+          〒123-4567 テスト県テスト市テスト町1-2-3<br>
+          TEL: 0120-123-456<br>
+          FAX: 0120-789-012
+        </address>
+      </div>
+
+  <!-- upper navmenu -->
+  <nav>
+    <h6 class="footer-title">Services</h6>
+    <a class="link link-hover">Branding</a>
+    <a class="link link-hover">Design</a>
+    <a class="link link-hover">Marketing</a>
+    <a class="link link-hover">Advertisement</a>
+  </nav>
+  <nav>
+    <h6 class="footer-title">Company</h6>
+    <a class="link link-hover">About us</a>
+    <a class="link link-hover">Contact</a>
+    <a class="link link-hover">Jobs</a>
+    <a class="link link-hover">Press kit</a>
+  </nav>
+  <nav>
+    <h6 class="footer-title">Legal</h6>
+    <a class="link link-hover">Terms of use</a>
+    <a class="link link-hover">Privacy policy</a>
+    <a class="link link-hover">Cookie policy</a>
+  </nav>
+</footer>
+
+<!-- lower -->
+<footer class="footer bg-linear-to-r from-blue-500 to-purple-600 p-10 text-white border-base-300 border-t px-10 py-4">
+  <aside class="grid-flow-col items-center">
+    <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" class="fill-current">
+      <path d="M22.672 15.226l-2.432.811.841 2.515c.33 1.019-.209 2.127-1.23 2.456-1.15.325-2.148-.321-2.463-1.226l-.84-2.518-5.013 1.677.84 2.517c.391 1.203-.434 2.542-1.831 2.542-.88 0-1.601-.564-1.86-1.314l-.842-2.516-2.431.809c-1.135.328-2.145-.317-2.463-1.229-.329-1.018.211-2.127 1.231-2.456l2.432-.809-1.621-4.823-2.432.808c-1.355.384-2.558-.59-2.558-1.839 0-.817.509-1.582 1.327-1.846l2.433-.809-.842-2.515c-.33-1.02.211-2.129 1.232-2.458 1.02-.329 2.13.209 2.461 1.229l.842 2.515 5.011-1.677-.839-2.517c-.403-1.238.484-2.553 1.843-2.553.819 0 1.585.509 1.85 1.326l.841 2.517 2.431-.81c1.02-.33 2.131.211 2.461 1.229.332 1.018-.21 2.126-1.23 2.456l-2.433.809 1.622 4.823 2.433-.809c1.242-.401 2.557.484 2.557 1.838 0 .819-.51 1.583-1.328 1.847m-8.992-6.428l-5.01 1.675 1.619 4.828 5.011-1.674-1.62-4.829z"></path>
+    </svg>
+    <p class="font-[Nosifer]">
+      ACME Industries Ltd.
+      <br />
+      Providing reliable tech since 1992
+    </p>
+  </aside>
+  <nav class="md:place-self-center md:justify-self-end">
+    <div class="grid grid-flow-col gap-4">
+      <a>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
+          <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
+        </svg>
+      </a>
+      <a>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
+          <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
+        </svg>
+      </a>
+      <a>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
+          <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
+        </svg>
+      </a>
+    </div>
+  </nav>
+</footer>
+
+
+<div class="fab">
+  <a href="#">
+    <button class="btn btn-lg btn-circle btn-secondary">
+      <svg enable-background="new 0 0 32 32" id="Слой_1" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <path d="M16.714,11.297c-0.389-0.389-1.039-0.389-1.429,0l-8.999,8.976  c-0.394,0.394-0.394,1.033,0,1.426c0.394,0.394,1.034,0.394,1.428,0L16,13.436l8.285,8.264c0.395,0.394,1.034,0.394,1.429,0  c0.394-0.394,0.394-1.033,0-1.426L16.714,11.297z" fill="currentColor" id="Expand_Less"></path>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+      </svg>
+    </button>
+  </a>
+</div>
+</body>
+</html>
